@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Sophie Bluel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="./assets/js/login.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 class="logo"><a href="./index.html"></a>Sophie Bluel <span>ARCHITECTE D'INTERIEUR</span></h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html" class="nav">projets</a></li>
+                <li><a href="#" class="nav">contact</a></li>
+                <li><a href="./login.html" class="nav" id="login-logout-link">login</a></li>
+                <li><a href="#"><img src="./assets/icons/instagram.png" alt="Instagram"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login-section">
+                <h2 class="login-title">login</h2>
+                <form id="login-form">
+                    <label class="email-label" for="username">Email :</label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                    <br>
+                    <label class="password-label" for="password">Mot de passe :</label>
+                    <input type="password" id="password" name="password" required>
+                    <p id="message-error" class="error-message" role="alert"></p>
+                    <button type="submit" class="button-connect animationbtn">Se connecter</button>
+                    <a href="#" class="mdp-forget">Mot de passe oublié ?</a>
+                </form>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <nav class="footer-nav">
+            <ul class="footer-ul">
+                <li class="footer-li">Mentions Légales</li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
