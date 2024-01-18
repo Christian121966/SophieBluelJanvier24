@@ -233,32 +233,32 @@ h2.mes_projets {
 
 #openModalIcon.far.fa-pen-to-square {
 	display: block;
-    position: relative;
-    left: 130px;
-    top: -20px;
-    cursor: pointer;
+  position: relative;
+  left: 130px;
+  top: -20px;
+  cursor: pointer;
 }
 
 p.modifier {
 	display: block;
-    position: relative;
-    left: 180px;
-    top: -35px;
-    height: 15.58px;
-    color: #000;
-    text-align: center;
-    font-family: work sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    cursor: pointer;
+  position: relative;
+  left: 180px;
+  top: -35px;
+  height: 15.58px;
+  color: #000;
+  text-align: center;
+  font-family: work sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
 }
 
 
 #filter-buttons {
 	text-align: center;
-    margin: 50px 0;
+  margin: 50px 0;
 }
 
 .objects[data-filter="Tous"] {
@@ -298,10 +298,10 @@ p.modifier {
 
 button.objects {
 	margin: 5px;
-    padding: 5px 10px;
-    border: 1px solid #1d6154;
-    border-radius: 60px;
-    cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #1d6154;
+  border-radius: 60px;
+  cursor: pointer;
 }
 
 .objects[data-filter="Hotels & restaurants"]:hover {
@@ -312,7 +312,7 @@ button.objects {
   /*modal*/
 
   #modal-gallery.modal {
-	background-color: rgba(0, 0, 0, 0.5);
+	  background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -321,20 +321,25 @@ button.objects {
   }
 
   .modal-container {
-	position: fixed;
+	  position: fixed;
     background: white;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -45%);
     padding: 20px;
-    max-height: 80vh;
+    max-height: 96vh;
     width: 632px;
     overflow-y: auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
+  /*.modal-image {
+    max-width: 100%;
+    max-height: 100%;
+  }*/
+
   .modal-title {
-	display: flex;
+	  display: flex;
     justify-content: center;
     font-size: 26px;
     padding-bottom: 35px;
@@ -344,14 +349,14 @@ button.objects {
   }
 
   .modal-close {
-	position: fixed;
+	  position: fixed;
     left: 630px;
     top: 28px;
     cursor: pointer;
   }
 
   .modal-photo {
-	display: flex;
+	  display: flex;
     flex-wrap: wrap;
     padding: 46px 35px;
   }
@@ -363,7 +368,7 @@ button.objects {
   }
 
   .fa-regular.fa-trash-can {
-	position: absolute;
+	  position: absolute;
     background: black;
     color: white;
     cursor: pointer;
@@ -392,13 +397,13 @@ button.objects {
   }
 
   .btnajout {
-	position: relative;
+	  position: relative;
     top: 20px;
     height: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
-	cursor: pointer;
+	  cursor: pointer;
   }
 
 .gallery {
@@ -462,6 +467,232 @@ footer nav ul {
 	margin: 2em
 }
 
-.hidden {
+/*.hidden {
 	display: none;
+}*/
+
+/*modalAddPhoto*/
+#modalAddPhoto.modal{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
+
+.modalAddPhotoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    height: 688px;
+    max-height: 96vh;
+    width: 630px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    left: 235px;
+    top: 125px;
+}
+
+.arrowLeft {
+    width: 21px;
+    height: 21px;
+    position: relative;
+    left: 34px;
+    top: -273px;
+    cursor: pointer;
+}
+
+#modalAddPhotoClose.modalAddPhotoClose {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    left: 560px;
+    top: -276px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+p.ajout_photo {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 12%;
+    color: #000;
+    text-align: center;
+    font-family: work SANS-SERIF;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 150px;
+    height: 30px;
+}
+
+hr.styled-hr {
+    width: 420px;
+    height: 1px;
+    color: #b3b3b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 246px;
+    left: 85px;
+}
+
+button.AddPhoto {
+    width: 237px;
+    height: 36px;
+    border-radius: 60px;
+    background: #a7a7a7;
+    display: block;
+    cursor: pointer;
+    z-index: 2;
+    overflow-y: auto;
+    position: relative;
+    top: 295px;
+    left: -202px;
+}
+
+.modalAddPhotoAjouterPhotoContainer {
+  width: 420px;
+  height: 169px;
+  border-radius: 3px;
+  background: #e8f1f6;
+  position: relative;
+  top: -385px;
+  left: 345px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalAddPhotoAjouterPhoto {
+    width: 76px;
+    height: 76px;
+    color: #b9C5cc;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 55px;
+    top: -10px;
+}
+
+.custom-file-upload {
+    width: 173px;
+    height: 36px;
+    border-radius: 50px;
+    background: #cbd6dc;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center !important;
+    font-weight: bold;
+    justify-content: center;
+    color: #306685;
+    font-family: work sans-serif;
+    z-index: 2;
+    position: absolute;
+    top: 50px;
+    left: -60px;
+}
+
+#fileInput {
+    width: 173px;
+    height: 36px;
+    z-index: 1;
+    opacity: 0;
+    position: absolute;
+    top: 48px;
+    left: -60px;
+}
+
+svg {
+    width: 600px;
+    transform: translate(-8px, -33px);
+    justify-content: center;
+    align-items: center;
+}
+
+#picture-svgrepo-com1 {
+    width: 600px;
+    transform: translate(20px, 30px);
+    justify-content: center;
+    align-items: center;
+}
+
+.ajouter-plus {
+    color: #444;
+    text-align: center;
+    font-family: work sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+    top: 50px;
+    left: -30px;
+}
+
+.custom-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 415px;
+}
+
+.titre {
+    position: relative;
+    top: -30px;
+}
+
+h5 {
+    color: #3d3d3d;
+    font-family: work sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+}
+
+#Titre-photo.input-titre-photo {
+    width: 420px;
+    height: 51px;
+    background: #fff;
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+}
+
+.categorie {
+    position: relative;
+    top: 0px;
+}
+
+h6 {
+    color: #3d3d3d;
+    font-family: work sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+}
+
+.dropdown {
+    width: 420px;
+    height: 51px;
+    background: #fff;
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+}
+
+#categorie-photo.select-categorie {
+    width: 420px;
+    height: 51px;
+    background: #fff;
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+}
+
