@@ -362,9 +362,11 @@ button.objects {
   }
 
   .modal-photo-item {
-	position: relative;
+	  position: relative;
     display: inline-block;
     margin: 5px;
+    left: -50px;
+    top: -10px;
   }
 
   .fa-regular.fa-trash-can {
@@ -495,12 +497,24 @@ footer nav ul {
     top: 125px;
 }
 
-.arrowLeft {
+.modal-container-add-photo {
+    position: fixed;
+    background: white;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    padding: 20px;
+    height: 80vh;
+    width: 632px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-left {
     width: 21px;
     height: 21px;
     position: relative;
-    left: 34px;
-    top: -273px;
+    left: -265px;
+    top: 34px;
     cursor: pointer;
 }
 
@@ -508,8 +522,8 @@ footer nav ul {
     width: 24px;
     height: 24px;
     position: relative;
-    left: 560px;
-    top: -276px;
+    left: 580px;
+    top: 13px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -521,6 +535,7 @@ p.ajout_photo {
     justify-content: center;
     position: absolute;
     top: 12%;
+    left: 275px;
     color: #000;
     text-align: center;
     font-family: work SANS-SERIF;
@@ -540,11 +555,11 @@ hr.styled-hr {
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 246px;
-    left: 85px;
+    top: 385px;
+    left: 0px;
 }
 
-button.AddPhoto {
+.AddPhoto {
     width: 237px;
     height: 36px;
     border-radius: 60px;
@@ -554,8 +569,8 @@ button.AddPhoto {
     z-index: 2;
     overflow-y: auto;
     position: relative;
-    top: 295px;
-    left: -202px;
+    top: 425px;
+    left: 210px;
 }
 
 .modalAddPhotoAjouterPhotoContainer {
@@ -564,8 +579,8 @@ button.AddPhoto {
   border-radius: 3px;
   background: #e8f1f6;
   position: relative;
-  top: -385px;
-  left: 345px;
+  top: 100px;
+  left: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -588,7 +603,7 @@ button.AddPhoto {
     border-radius: 50px;
     background: #cbd6dc;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
     align-items: center !important;
     font-weight: bold;
     justify-content: center;
@@ -598,6 +613,13 @@ button.AddPhoto {
     position: absolute;
     top: 50px;
     left: -60px;
+}
+
+h5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 #fileInput {
@@ -642,22 +664,37 @@ svg {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 415px;
+    top: 365px;
+    left: 122px;
 }
 
-.titre {
-    position: relative;
-    top: -30px;
+.titre-text {
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+  color: #3d3d3d;
+  font-family: work sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
-h5 {
-    color: #3d3d3d;
-    font-family: work sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    display: flex;
+.categorie-label {
+  position: relative;
+  top: 25px;
+}
+
+.categorie-text {
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+  color: #3d3d3d;
+  font-family: work sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 #Titre-photo.input-titre-photo {
@@ -666,22 +703,6 @@ h5 {
     background: #fff;
     box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
 }
-
-.categorie {
-    position: relative;
-    top: 0px;
-}
-
-h6 {
-    color: #3d3d3d;
-    font-family: work sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    display: flex;
-}
-
 .dropdown {
     width: 420px;
     height: 51px;
@@ -695,4 +716,15 @@ h6 {
     background: #fff;
     box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
 }
+
+/*.modal-photo-item {
+    width: 76px;
+    height: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 463px;
+    left: 317px;
+}*/
 

@@ -1,59 +1,74 @@
-// Création du formulaire
-let form = document.createElement('form');
-form.className = 'custom-form';
+// Gestionnaire d'événements pour le bouton 'Valider'
+const buttonValider = document.querySelector('.AddPhoto'); // Assurez-vous que c'est le bon sélecteur pour votre bouton
+buttonValider.addEventListener('click', function() {
+const uploadedImageUrl = localStorage.getItem('uploadedImageUrl');
+const titre = document.getElementById('Titre-photo').value;
+const categorie = document.getElementById('categorie-photo').value;
 
-// Création du label "Titre"
-let labelTitre = document.createElement('label');
-labelTitre.className = 'titre';
+if (uploadedImageUrl && titre && categorie) {
+// Ajouter l'image à modal-gallery avec l'icône poubelle
+const photoItemGallery = document.createElement('div');
+photoItemGallery.className = 'modal-photo-item';
 
-let h5 = document.createElement('h5');
-h5.textContent = 'Titre';
+const trashIcon = document.createElement('i');
+trashIcon.className = 'fa fa-trash';
+photoItemGallery.appendChild(trashIcon);
 
-let inputTitre = document.createElement('input');
-inputTitre.type = 'text';
-inputTitre.id = 'Titre-photo';
-inputTitre.name = 'Titre';
-inputTitre.className = 'input-titre-photo';
+const imgGallery = document.createElement('img');
+imgGallery.src = uploadedImageUrl;
+photoItemGallery.appendChild(imgGallery);
 
-labelTitre.append(h5, inputTitre);
+modalGallery.appendChild(photoItemGallery);
 
-// Création du label "Catégorie"
-let labelCategorie = document.createElement('label');
-labelCategorie.className = 'categorie';
+// Ajouter l'image à la galerie sur la page d'accueil avec titre et catégorie
+const figure = document.createElement('figure');
+figure.dataset.category = categorie;
 
-let h6 = document.createElement('h6');
-h6.textContent = 'Catégorie';
+const homeImage = document.createElement('img');
+homeImage.src = uploadedImageUrl;
+homeImage.alt = titre;
+homeImage.style.width = '361.67px';
+homeImage.style.height = '482.62px';
 
-let div = document.createElement('div');
-div.className = 'dropdown';
+const figcaption = document.createElement('figcaption');
+figcaption.textContent = titre;
 
-let select = document.createElement('select');
-select.name = 'categorie';
-select.id = 'categorie-photo';
-select.className = 'select-categorie';
+figure.appendChild(homeImage);
+figure.appendChild(figcaption);
+gallery.appendChild(figure);
 
-let option1 = document.createElement('option');
-option1.value = '#';
+// Après l'envoi de l'image
+const label = document.querySelector('label[for="fileInput"]');
+label.style.display = 'block'; // ou 'flex' si vous utilisez Flexbox pour centrer
 
-let option2 = document.createElement('option');
-option2.value = 'option1';
-option2.textContent = 'Objets';
+// Réinitialiser l'aperçu de l'image et les champs du formulaire pour un nouvel ajout
+const imageContainer = document.getElementById('imageContainer');
+imageContainer.innerHTML = '';
 
-let option3 = document.createElement('option');
-option3.value = 'option2';
-option3.textContent = 'Appartements';
+// Réafficher les éléments pour télécharger une nouvelle image
+document.querySelector('label[for="fileInput"]').style.display = 'block';
+const svg = document.querySelector('.modalAddPhotoAjouterPhoto svg');
+if (svg) svg.style.display = 'block';
+const ajouterPlus = document.querySelector('.ajouter-plus');
+if (ajouterPlus) ajouterPlus.style.display = 'block';
 
-let option4 = document.createElement('option');
-option4.value = 'option2';
-option4.textContent = 'Hôtels & restaurants';
+// Réinitialiser les valeurs du formulaire
+document.getElementById('Titre-photo').value = '';
+document.getElementById('categorie-photo').value = '';
 
-select.append(option1, option2, option3, option4);
-div.appendChild(select);
+// Fermer modalAddPhoto et afficher modal-gallery
+modalGallery.style.display = 'block';
+} else {
+console.error('Erreur : URL de l\'image, titre ou catégorie manquant.');
+}
+});
 
-labelCategorie.append(h6, div);
-
-// Ajout des labels au formulaire
-form.append(labelTitre, labelCategorie);
-
-// Ajout du formulaire à modalAddPhotoContainer
-modalAddPhotoContainer.appendChild(form);
+// Ajout de l'écouteur d'événements 'click' à modalAddPhotoClose
+const modalAddPhotoClose = document.getElementById('modalAddPhotoClose');
+modalAddPhotoClose.addEventListener('click', function() {
+// Sélectionnez modalAddPhoto en utilisant son ID et changez son style pour le cacher
+const modalAddPhoto = document.getElementById('modalAddPhoto');
+if (modalAddPhoto) {
+modalAddPhoto.style.display = 'none';
+}
+});

@@ -191,7 +191,7 @@ function openModal() {
 
 
       modalAddPhotoContainer = document.createElement('div');
-      modalAddPhotoContainer.className = 'modal-container';
+      modalAddPhotoContainer.className = 'modal-container-add-photo';
 
       // Ajout de modalAddPhotoContainer à modalAddPhoto
       //modalAddPhoto.appendChild(modalAddPhotoContainer);
@@ -242,7 +242,7 @@ function openModal() {
 
       //Création du titre "Ajout photo"
       const title = document.createElement('p');
-      title.className = 'ajout_phot';
+      title.className = 'ajout_photo';
       title.textContent = 'Ajout Photo';
 
       modalAddPhotoContainer.appendChild(title);
@@ -258,7 +258,11 @@ function openModal() {
       let label = document.createElement('label');
       label.setAttribute('for', 'fileInput');
       label.className = 'custom-file-upload';
-      label.textContent = '+ Ajouter photo';
+
+      let h5 = document.createElement('h5');
+      h5.textContent = '+ Ajouter photo';
+
+      label.appendChild(h5);
 
       let input = document.createElement('input');
       input.type = 'file';
@@ -314,49 +318,69 @@ form.className = 'custom-form';
 
 // Création du label "Titre"
 let labelTitre = document.createElement('label');
-labelTitre.className = 'titre';
-labelTitre.textContent = 'Titre';
-labelTitre.htmlFor = 'Titre-photo'; // Ajout de l'attribut 'for'
+labelTitre.className = 'titre-label';
+labelTitre.htmlFor = 'Titre-photo';
 
+// Création du paragraphe pour le texte "Titre"
+let pTitre = document.createElement('p');
+pTitre.className = 'titre-text';
+pTitre.textContent = 'Titre';
+
+// Ajout du paragraphe en tant qu'enfant du label
+labelTitre.appendChild(pTitre);
+
+// Création de l'input "Titre"
 let inputTitre = document.createElement('input');
 inputTitre.type = 'text';
 inputTitre.id = 'Titre-photo';
 inputTitre.name = 'Titre';
 inputTitre.className = 'input-titre-photo';
 
+// Ajout de l'input en tant qu'enfant du label
 labelTitre.appendChild(inputTitre);
+
+// Ajout du label au conteneur principal
+modalAddPhotoContainer.appendChild(labelTitre);
 
 // Création du label "Catégorie"
 let labelCategorie = document.createElement('label');
-labelCategorie.className = 'categorie';
-labelCategorie.textContent = 'Catégorie';
-labelCategorie.htmlFor = 'categorie-photo'; // Ajout de l'attribut 'for'
+labelCategorie.className = 'categorie-label';
+labelCategorie.htmlFor = 'categorie-photo';
 
-let select = document.createElement('select');
-select.name = 'categorie';
-select.id = 'categorie-photo';
-select.className = 'select-categorie';
+// Création du paragraphe pour le texte "Catégorie"
+let pCategorie = document.createElement('p');
+pCategorie.className = 'categorie-text';
+pCategorie.textContent = 'Catégorie';
 
-let option1 = document.createElement('option');
-option1.value = '';
-option1.textContent = '#';
-option1.disabled = true;
-option1.selected = true;
+// Ajout du paragraphe en tant qu'enfant du label
+labelCategorie.appendChild(pCategorie);
 
-let option2 = document.createElement('option');
-option2.value = 'objets';
-option2.textContent = 'Objets';
+// Création du sélecteur "Catégorie"
+let selectCategorie = document.createElement('select');
+selectCategorie.id = 'categorie-photo';
+selectCategorie.name = 'categorie';
+selectCategorie.className = 'select-categorie';
 
-let option3 = document.createElement('option');
-option3.value = 'appartements';
-option3.textContent = 'Appartements';
+// Ajout d'une option vide au début du sélecteur
+let optionVide = document.createElement('option');
+optionVide.value = "";
+optionVide.textContent = "";
+selectCategorie.appendChild(optionVide);
 
-let option4 = document.createElement('option');
-option4.value = 'hotels-restaurants';
-option4.textContent = 'Hôtels & restaurants';
+// Ajout des options au sélecteur
+const categories = ['Objets', 'Appartements', 'Hôtels & Restaurants'];
+categories.forEach(cat => {
+  let option = document.createElement('option');
+  option.value = cat.toLowerCase().replace(/ & /g, '-').replace(/ /g, '');
+  option.textContent = cat;
+  selectCategorie.appendChild(option);
+});
 
-select.append(option1, option2, option3, option4);
-labelCategorie.appendChild(select);
+// Ajout du sélecteur en tant qu'enfant du label
+labelCategorie.appendChild(selectCategorie);
+
+// Ajout du label "Catégorie" au conteneur principal
+modalAddPhotoContainer.appendChild(labelCategorie);
 
 // Ajout des labels au formulaire
 form.append(labelTitre, labelCategorie);
@@ -407,9 +431,6 @@ function openModalAddPhoto() {
   modalAddPhoto.style.display = "block";
 }
 
-      // Récupération du bouton existant
-      //let addButton = document.querySelector('.btnajout');
-
       // Ajout de l'écouteur d'événements au bouton
       addButton.addEventListener('click', openModalAddPhoto);
 
@@ -424,6 +445,122 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     console.error('Le bouton "Ajouter une photo" n\'a pas été trouvé.');
   }
-    // Appel de la fonction createModalAddPhoto lorsque le bouton est cliqué
-    //createModalAddPhoto();
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const fileInput = document.getElementById('fileInput');
+  const modalAddPhoto = document.getElementById('modalAddPhoto');
+  const modalGallery = document.getElementById('modal-gallery');
+  const arrowLeft = document.querySelector('.arrow-left');
+  const svgClose = document.querySelector('.svgClose'); // Assurez-vous que c'est le bon sélecteur
+  const gallery = document.querySelector('.gallery');
+
+  // Gestionnaire d'événements pour le téléchargement de l'image
+  fileInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith('image/')) {
+      const fileUrl = URL.createObjectURL(file);
+      localStorage.setItem('uploadedImageUrl', fileUrl); // Stocker l'URL dans le localStorage
+
+      // Créer un conteneur pour l'image avec le style désiré
+      const photoItem = document.createElement('div');
+      photoItem.className = 'modal-photo-item';
+
+      // Créer un élément img et le configurer pour afficher l'image
+      const img = document.createElement('img');
+      img.src = fileUrl;
+      img.style.width = '76px';
+      img.style.height = '105px';
+      img.style.objectFit = 'cover';
+      photoItem.appendChild(img);
+
+      // Ajouter le conteneur de l'image au conteneur principal
+      const imageContainer = document.getElementById('imageContainer');
+      imageContainer.innerHTML = '';
+      imageContainer.appendChild(photoItem);
+
+      // Rendre certains éléments invisibles après le téléchargement de l'image
+      document.querySelector('label[for="fileInput"]').style.display = 'none';
+      const svg = document.querySelector('.modalAddPhotoAjouterPhoto svg');
+      if (svg) svg.style.display = 'none';
+      const ajouterPlus = document.querySelector('.ajouter-plus');
+      if (ajouterPlus) ajouterPlus.style.display = 'none';
+    }
   });
+
+
+      // Gestionnaire d'événements pour le bouton 'Valider'
+const buttonValider = document.querySelector('.AddPhoto'); // Assurez-vous que c'est le bon sélecteur pour votre bouton
+buttonValider.addEventListener('click', function() {
+  const uploadedImageUrl = localStorage.getItem('uploadedImageUrl');
+  const titre = document.getElementById('Titre-photo').value;
+  const categorie = document.getElementById('categorie-photo').value;
+
+  if (uploadedImageUrl && titre && categorie) {
+    // Ajouter l'image à modal-gallery avec l'icône poubelle
+    const photoItemGallery = document.createElement('div');
+    photoItemGallery.className = 'modal-photo-item';
+
+    const trashIcon = document.createElement('i');
+    trashIcon.className = 'fa fa-trash';
+    trashIcon.addEventListener('click', function() {
+      // Supprimer l'élément de modal-gallery
+      photoItemGallery.remove();
+      // Supprimer les données de localStorage
+      localStorage.removeItem('uploadedImageUrl');
+      // Mettre à jour le compteur si nécessaire
+      console.log("Nombre de photos récupérées :", localStorage.length);
+    });
+    photoItemGallery.appendChild(trashIcon);
+
+    const imgGallery = document.createElement('img');
+    imgGallery.src = uploadedImageUrl;
+    imgGallery.style.width = '76px';
+    imgGallery.style.height = '105px';
+    photoItemGallery.appendChild(imgGallery);
+
+    modalGallery.appendChild(photoItemGallery);
+
+    // Ajouter l'image à la galerie sur la page d'accueil avec titre et catégorie
+    const figure = document.createElement('figure');
+    figure.dataset.category = categorie;
+
+    const homeImage = document.createElement('img');
+    homeImage.src = uploadedImageUrl;
+    homeImage.alt = titre;
+    homeImage.style.width = '361.67px';
+    homeImage.style.height = '482.62px';
+
+    const figcaption = document.createElement('figcaption');
+    figcaption.textContent = titre;
+
+    figure.appendChild(homeImage);
+    figure.appendChild(figcaption);
+    gallery.appendChild(figure);
+
+    // Réinitialiser l'aperçu de l'image et les champs du formulaire pour un nouvel ajout
+    const imageContainer = document.getElementById('imageContainer');
+    imageContainer.innerHTML = '';
+
+    // Réafficher les éléments pour télécharger une nouvelle image
+    const label = document.querySelector('label[for="fileInput"]');
+    label.style.display = 'block';
+    const svg = document.querySelector('.modalAddPhotoAjouterPhoto svg');
+    if (svg) svg.style.display = 'block';
+    const ajouterPlus = document.querySelector('.ajouter-plus');
+    if (ajouterPlus) ajouterPlus.style.display = 'block';
+
+    // Réinitialiser les valeurs du formulaire
+    document.getElementById('Titre-photo').value = '';
+    document.getElementById('categorie-photo').value = '';
+
+    // Fermer modalAddPhoto et afficher modal-gallery
+    modalAddPhoto.style.display = 'none';
+    modalGallery.style.display = 'block';
+  } else {
+    console.error('Erreur : URL de l\'image, titre ou catégorie manquant.');
+  }
+});
+});
