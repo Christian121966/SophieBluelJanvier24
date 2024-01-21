@@ -15,17 +15,17 @@
 </head>
 <body>
 
-	<div class="edition-mode hidden">
+	<div class="edition-mode btn-modifier hidden">
 		<i class="far fa-pen-to-square"></i> Mode édition
 	</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li><a href="./index.html">projets</a></li>
-			<li><a href="#">contact</a></li>
-			<li><a href="./login.html" id="loginLink" class="login">Login</a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			<li><a href="./index.html" class="nav">projets</a></li>
+			<li><a href="#" class="nav">contact</a></li>
+			<li><a href="./login.html" class="nav login" id="loginLink">login</a></li>
+			<li><a href="#"><img src="./assets/icons/instagram.png" alt="Instagram"></a></li>
 		</ul>
 	</nav>
 </header>
@@ -44,9 +44,12 @@
 	<section id="portfolio">
 		<div class="modal1">
 			<h2 class="mes_projets">Mes Projets</h2>
-			<i id="openModalIcon" class="far fa-pen-to-square"></i>
-			<p class="modifier">modifier</p>
+			<div class="btn-modifier hidden">
+				<i id="openModalIcon" class="far fa-pen-to-square"></i>
+				<p class="modifier">modifier</p>
+			</div>
 		</div>
+		<div id="filter-buttons"></div>
 		<div class="gallery">
 			
 		</div>
@@ -73,6 +76,65 @@
 		</ul>
 	</nav>
 </footer>
+<div id="modal-gallery" class="modal hidden">
+	<div class="modal-container">
+		<p class="modal-title">Galerie photo</p>
+		<div class="modal-close">
+			<i class="fa-solid fa-xmark"></i>
+		</div>
+		<div class="modal-photo">
+
+		</div>
+		<hr class="style-hr trait">
+		<input type="submit" value="Ajouter une photo" class="btnajout" data-modal-id="modalAddPhoto">
+	</div>
+</div>
+
+<div id="modalAddPhoto" class="modal hidden">
+	<div class="modal-container-add-photo">
+		<div class="arrow-left">
+			<i class="fa-solid fa-arrow-left"></i>
+		</div>
+		<div class="modal-close">
+			<i class="fa-solid fa-xmark"></i>
+		</div>
+		<p class="ajout_photo">Ajout Photo</p>
+		<div class="modalAddPhotoAjouterPhotoContainer">
+			<div class="modalAddPhotoAjouterPhoto">
+				<label for="fileInput" class="custom-file-upload">
+					<h5>+ Ajouter photo</h5>
+				</label>
+				<input type="file" id="fileInput" accept="image/*">
+				
+				<svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g id="picture-svgrepo-com 1">
+						<path id="Vector" fill="#B9C5CC"></path>
+					</g>
+				</svg>
+			</div>
+			<div class="ajouter-plus">
+				<p class="ajout">jpg.png : 4mo max</p>
+			</div>
+		</div>
+		<div id="imageContainer"></div>
+		<form class="custom-form">
+			<label class="titre-label" for="Titre-photo">
+				<p class="titre-text">Titre</p>
+				<input type="text" id="Titre-photo" name="Titre" class="input-titre-photo">
+			</label>
+			<label class="categorie-label" for="categorie-photo">
+				<p class="categorie-text">Catégorie</p>
+				<select id="categorie-photo" name="categorie" class="select-categorie">
+					<option value=""></option>
+				</select>
+			</label>
+		</form>
+		<hr class="styled-hr">
+		<button type="submit" class="AddPhoto">
+			<span>Valider</span>
+		</button>
+	</div>
+</div>
 <script src="./assets/js/script.js" defer></script>
 <script src="./assets/js/modal.js" defer></script>
 </body>

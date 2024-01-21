@@ -125,16 +125,16 @@ p#message-error.error-message {
 }
 
 button.button-connect.animationbtn {
-	height: 50px;
-    width: 180px;
+    box-sizing: border-box;
+	  height: 36px;
     font-size: 1.2em;
     border: none;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
     cursor: pointer;
     font-family: "syne";
     font-weight: 700;
-    color: white !important;
-    background-color: #1d6154 !important;
+    color: white;
+    background-color: #1d6154;
     margin: 2em auto;
     text-align: center;
     border-radius: 60px;
@@ -147,7 +147,7 @@ button.button-connect.animationbtn {
 
 a.mdp-forget {
 	color: #3d3d3d;
-    font-family: work sans-serif;
+    font-family: 'Work Sans';
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -189,6 +189,17 @@ nav ul {
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
+}
+
+.nav{
+  color: #000;
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
 }
 
 li:hover {
@@ -247,7 +258,7 @@ p.modifier {
   height: 15.58px;
   color: #000;
   text-align: center;
-  font-family: work sans-serif;
+  font-family: 'Work Sans';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -261,53 +272,32 @@ p.modifier {
   margin: 50px 0;
 }
 
-.objects[data-filter="Tous"] {
-	width: 100px;
-	height: 37px;
-}
 
-.objects[data-filter="Tous"]:hover {
-	color: #fff;
-	background-color: #1d6154;
-  }
 
-.objects[data-filter="Objets"] {
-	width: 100px;
-	height: 37px;
-}
 
-.objects[data-filter="Objets"]:hover {
-	color: #fff;
-	background-color: #1d6154;
-  }
-
-.objects[data-filter="Appartements"] {
-	width: 157px;
-	height: 37px;
-}
-
-.objects[data-filter="Appartements"]:hover {
-	color: #fff;
-	background-color: #1d6154;
-  }
-
-.objects[data-filter="Hotels & restaurants"] {
-	width: 198px;
-	height: 37px;
-}
 
 button.objects {
+  background-color: #fff;
+  height: 37px;
+  flex-shrink: 0;
 	margin: 5px;
   padding: 5px 10px;
   border: 1px solid #1d6154;
   border-radius: 60px;
   cursor: pointer;
+  color: #1D6154;
+  text-align: center;
+  font-family: Syne;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
-.objects[data-filter="Hotels & restaurants"]:hover {
-	color: #fff;
-	background-color: #1d6154;
-  }
+.objects:hover, .objects.active{
+  color: #fff;
+  background-color: #1d6154;
+}
 
   /*modal*/
 
@@ -469,9 +459,7 @@ footer nav ul {
 	margin: 2em
 }
 
-/*.hidden {
-	display: none;
-}*/
+
 
 /*modalAddPhoto*/
 #modalAddPhoto.modal{
@@ -513,8 +501,7 @@ footer nav ul {
     width: 21px;
     height: 21px;
     position: relative;
-    left: -265px;
-    top: 34px;
+
     cursor: pointer;
 }
 
@@ -538,7 +525,7 @@ p.ajout_photo {
     left: 275px;
     color: #000;
     text-align: center;
-    font-family: work SANS-SERIF;
+    font-family: 'Work Sans';
     font-size: 26px;
     font-style: normal;
     font-weight: 400;
@@ -608,7 +595,7 @@ hr.styled-hr {
     font-weight: bold;
     justify-content: center;
     color: #306685;
-    font-family: work sans-serif;
+    font-family: 'Work Sans';
     z-index: 2;
     position: absolute;
     top: 50px;
@@ -649,7 +636,7 @@ svg {
 .ajouter-plus {
     color: #444;
     text-align: center;
-    font-family: work sans-serif;
+    font-family: 'Work Sans';
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -673,7 +660,7 @@ svg {
   display: flex;
   justify-content: flex-start;
   color: #3d3d3d;
-  font-family: work sans-serif;
+  font-family:'Work Sans';
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -690,7 +677,7 @@ svg {
   display: flex;
   justify-content: flex-start;
   color: #3d3d3d;
-  font-family: work sans-serif;
+  font-family: 'Work Sans';
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -717,14 +704,12 @@ svg {
     box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
 }
 
-/*.modal-photo-item {
+.modal-photo-item img{
     width: 76px;
     height: 105px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 463px;
-    left: 317px;
-}*/
+    object-fit: cover;
+}
 
+.hidden {
+  display: none;
+}
