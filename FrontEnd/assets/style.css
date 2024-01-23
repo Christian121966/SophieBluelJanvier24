@@ -355,8 +355,8 @@ button.objects {
 	  position: relative;
     display: inline-block;
     margin: 5px;
-    left: -50px;
-    top: -10px;
+    left: 25px;
+    top: 2px;
   }
 
   .fa-regular.fa-trash-can {
@@ -534,6 +534,14 @@ p.ajout_photo {
     height: 30px;
 }
 
+#imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 130px;
+}
+
 hr.styled-hr {
     width: 420px;
     height: 1px;
@@ -542,7 +550,7 @@ hr.styled-hr {
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 385px;
+    top: 455px;
     left: 0px;
 }
 
@@ -556,7 +564,7 @@ hr.styled-hr {
     z-index: 2;
     overflow-y: auto;
     position: relative;
-    top: 425px;
+    top: 490px;
     left: 210px;
 }
 
@@ -566,7 +574,7 @@ hr.styled-hr {
   border-radius: 3px;
   background: #e8f1f6;
   position: relative;
-  top: 100px;
+  top: 115px;
   left: 110px;
   display: flex;
   justify-content: center;
@@ -712,4 +720,12 @@ svg {
 
 .hidden {
   display: none;
+}
+
+.active{
+  background-color: #1d6154;
+  color: #fff;
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 700;
 }

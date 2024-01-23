@@ -158,9 +158,11 @@ if (token) {
       document.getElementById("fileInput").files.length > 0
     ) {
       document.querySelector(".AddPhoto").disabled = false;
+      document.querySelector(".AddPhoto").classList.add('active');
       submitFormVerify = true;
     }else {
       document.querySelector(".AddPhoto").disabled = true;
+      document.querySelector(".AddPhoto").classList.remove("active");
       submitFormVerify = false;
     }
   }
