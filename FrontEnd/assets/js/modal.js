@@ -196,6 +196,15 @@ if (token) {
         updateGallery("Tous");
         closeModalPhoto();
         openModal();
+
+
+      document.getElementById("Titre-photo").value = "";
+      document.getElementById("categorie-photo").value = "";
+      document.getElementById("fileInput").value = "";
+
+      document.querySelector(".AddPhoto").disabled = true;
+      document.querySelector(".AddPhoto").classList.remove("active");
+      submitFormVerify = false;
       });
   }
 }
